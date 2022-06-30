@@ -1,0 +1,34 @@
+" ============================================================================
+" Netrw Directory Listing                                        (netrw v165)
+"   /alx-low_level_programming
+"   Sorted by      name
+"   Sort sequence: [\/]$,\<core\%(\.\d\+\)\=\>,\.h$,\.c$,\.cpp$,\~\=\*$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$
+"   Quick Help: <F1>:help  -:go up dir  D:delete  R:rename  s:sort-by  x:special
+" ==============================================================================
+../
+alx-low_level_programming/
+| .git/
+| 0x00-hello_world/
+| | 0-main.c
+| | 1-main.c
+| | 101-quote.c
+| | 2-main.c
+| | 3-main.c
+| | 4-puts.c
+| | 5-printf.c
+| | 6-size.c
+| | 7-main.c
+| | 0-preprocessor*
+| | 1-compiler*
+| | 1-main.o*
+| | 100-intel*
+| | 2-assembler*
+| | 3-name*
+| | a.out*
+| | cisfun*
+| | size32*
+| | size64*
+| | 2-main.s
+| | 7-main.s
+| | README.md
+| | c
