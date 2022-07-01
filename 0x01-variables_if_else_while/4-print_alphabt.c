@@ -1,4 +1,6 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * main - Entry point
@@ -8,12 +10,15 @@
 
 int main(void)
 {
-	char alp[26] = "abcdfghijklmnoprstuvwxyz\n";
 	int i;
 
-	for (i = 0; i < 26; i++)
+	for (i = 97; i < 123; i++)
 	{
-		putchar(alp[i]);
+		if (i != 101 && i != 113)
+		{
+			putchar(i);
+		}
 	}
+	putchar('\n');
 	return (0);
 }
