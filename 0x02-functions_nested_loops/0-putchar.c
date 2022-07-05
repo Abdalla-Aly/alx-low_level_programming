@@ -1,18 +1,11 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * main - printing _putchar
  *
  * Return: Always 0 (Success)
  */
-
-/**
- * _putchar() - writes the character c to stdout
- * @c: The character to print
- *
- * Return: on 1 (Success)
- */
-int _putchar(char c);
 
 int main(void)
 {
