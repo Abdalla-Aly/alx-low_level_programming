@@ -7,7 +7,10 @@
  */
 
 /**
- * c - is a parameter
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: on 1 (Success)
  */
 int _putchar(char c);
 
