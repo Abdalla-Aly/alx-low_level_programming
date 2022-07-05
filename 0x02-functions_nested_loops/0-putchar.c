@@ -6,8 +6,10 @@
  * Return: Always 0 (Success)
  */
 
-
-int _putchar(char);
+/**
+ * c - is a parameter
+ */
+int _putchar(char c);
 
 int main(void)
 {
