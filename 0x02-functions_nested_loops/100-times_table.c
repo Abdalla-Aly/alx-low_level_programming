@@ -4,7 +4,7 @@
 /**
  * print_times_table: prints the n times table, starting with 0
  *
- * @n: input type integer
+ * @n: number times table (0 < n <= 15)
  *
  * Return: no return
  */
