@@ -3,7 +3,7 @@
 /**
  * print_square - prints a square, followed by a new line.
  *
- * @size: inpur type int.
+ * @size: input type int.
  *
  * Return: no return.
  */
@@ -18,7 +18,7 @@ void print_square(int size)
 		{
 			_putchar(35);
 		}
-		if (i != (size - 1))
+		if (i != size - 1)
 			_putchar('\n');
 	}
 	_putchar('\n');
