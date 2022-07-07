@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_triangle -  prints a triangle, followed by a new line.
+ * print_triangle - prints a triangle.
  *
  * @size: input type int.
  *
@@ -14,7 +14,7 @@ void print_triangle(int size)
 
 	for (i = 0; i < size; i++)
 	{
-		for (j = 0; j < (size - i); j++)
+		for (j = 1; j < (size - i); j++)
 		{
 			_putchar(' ');
 		}
