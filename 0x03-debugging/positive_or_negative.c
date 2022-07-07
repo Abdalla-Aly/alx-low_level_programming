@@ -12,11 +12,9 @@
 
 void positive_or_negative(int i)
 {
-	srand(time(0));
-	i = rand() - RAND_MAX / 2;
-	if (i > 0)
+	if (i == 0)
 	{
-		printf("%d is positive\n", i);
+		printf("%d is zero\n", i);
 	}
 	else if (i < 0)
 	{
@@ -24,6 +22,6 @@ void positive_or_negative(int i)
 	}
 	else
 	{
-		printf("%d is zero\n", i);
+		printf("%d is positive\n", i);
 	}
 }
