@@ -2,7 +2,8 @@
 
 /**
  * _puts - prints string followed by a new line.
- * &str: varaible type char.
+ *
+ * @str: varaible type char.
  *
  * Return: no retrun.
  */
