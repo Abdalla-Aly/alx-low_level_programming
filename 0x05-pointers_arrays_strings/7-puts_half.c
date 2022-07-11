@@ -1,7 +1,7 @@
 #include "main.h"
 
-/*
- * puts_half - prints half of the string
+/**
+ * puts_half - prints half of a string, followed by a new line.
  * @str: variable type char
  *
  * Return: no retrun.
@@ -19,10 +19,9 @@ void puts_half(char *str)
 		}
 		count++;
 	}
-	
-	if (count % 2 ==1)
+	if (count % 2 == 1)
 	{
-		i = count /2;
+		i = count / 2;
 	}
 	else
 	{
