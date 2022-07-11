@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	char s[10] = " My school";
+	char s[10] = "My school";
 
 	printf("%s\n", s);
 	rev_string(s);
