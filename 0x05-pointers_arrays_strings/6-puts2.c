@@ -9,12 +9,20 @@
  */
 void puts2(char *str)
 {
-	int count, i;
+	int count;
 
 	count = 0;
-	for (i = 0; i < str[count]; i+=2)
+	while (count >= 0)
 	{
-		_putchar(str[count]);
+		if (str[count] == '\0')
+		{
+			_putchar('\n');
+			break;
+		}
+		if (count % 2 == 0)
+		{
+			_putchar(str[count]);
+		}
+		count++;
 	}
-	_putchar('\n');
 }
