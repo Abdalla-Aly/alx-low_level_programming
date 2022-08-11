@@ -9,7 +9,7 @@
  *
  * Description: singly linked list struct node.
  */
-typedef struct lsit_s
+typedef struct list_s
 {
 	char *str;
 	unsigned int len;
@@ -17,3 +17,5 @@ typedef struct lsit_s
 }list_t;
 
 size_t print_list(const list_t *h);
+
+#endif
