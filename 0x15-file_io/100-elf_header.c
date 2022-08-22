@@ -1,18 +1,24 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <elf.h>
 
 /**
  * print_addr - prints address
  * @ptr: magic.
  * Return: no return.
  */
-
-print_addr(char *ptr)
+void print_addr(char *ptr)
 {
 	int i;
 	int begin;
 	char sys;
 
 	printf("  Entry point address:               0x");
+
 	sys = ptr[4] + '0';
 	if (sys == '1')
 	{
@@ -28,6 +34,7 @@ print_addr(char *ptr)
 		if (ptr[7] == 6)
 			printf("00");
 	}
+
 	if (sys == '2')
 	{
 		begin = 26;
@@ -35,12 +42,15 @@ print_addr(char *ptr)
 		{
 			if (ptr[i] >= 0)
 				printf("%02x", ptr[i]);
+
 			else if (ptr[i] < 0)
 				printf("%02x", 256 + ptr[i]);
+
 		}
 	}
 	printf("\n");
 }
+
 /**
  * print_type - prints type
  * @ptr: magic.
@@ -54,6 +64,7 @@ void print_type(char *ptr)
 		type = ptr[16];
 	else
 		type = ptr[17];
+
 	printf("  Type:                              ");
 	if (type == 0)
 		printf("NONE (No file type)\n");
@@ -68,6 +79,7 @@ void print_type(char *ptr)
 	else
 		printf("<unknown: %x>\n", type);
 }
+
 /**
  * print_osabi - prints osabi
  * @ptr: magic.
@@ -86,8 +98,11 @@ void print_osabi(char *ptr)
 		printf("UNIX - Solaris\n");
 	else
 		printf("<unknown: %x>\n", osabi);
+
 	printf("  ABI Version:                       %d\n", ptr[8]);
 }
+
+
 /**
  * print_version - prints version
  * @ptr: magic.
@@ -98,8 +113,10 @@ void print_version(char *ptr)
 	int version = ptr[6];
 
 	printf("  Version:                           %d", version);
+
 	if (version == EV_CURRENT)
 		printf(" (current)");
+
 	printf("\n");
 }
 /**
@@ -110,9 +127,11 @@ void print_version(char *ptr)
 void print_data(char *ptr)
 {
 	char data = ptr[5];
+
 	printf("  Data:                              2's complement");
 	if (data == 1)
 		printf(", little endian\n");
+
 	if (data == 2)
 		printf(", big endian\n");
 }
@@ -126,10 +145,14 @@ void print_magic(char *ptr)
 	int bytes;
 
 	printf("  Magic:  ");
+
 	for (bytes = 0; bytes < 16; bytes++)
 		printf(" %02x", ptr[bytes]);
+
 	printf("\n");
+
 }
+
 /**
  * check_sys - check the version system.
  * @ptr: magic.
@@ -141,18 +164,23 @@ void check_sys(char *ptr)
 
 	if (sys == '0')
 		exit(98);
+
 	printf("ELF Header:\n");
 	print_magic(ptr);
+
 	if (sys == '1')
 		printf("  Class:                             ELF32\n");
+
 	if (sys == '2')
 		printf("  Class:                             ELF64\n");
+
 	print_data(ptr);
 	print_version(ptr);
 	print_osabi(ptr);
 	print_type(ptr);
 	print_addr(ptr);
 }
+
 /**
  * check_elf - check if it is an elf file.
  * @ptr: magic.
@@ -164,10 +192,13 @@ int check_elf(char *ptr)
 	char E = ptr[1];
 	char L = ptr[2];
 	char F = ptr[3];
+
 	if (addr == 127 && E == 'E' && L == 'L' && F == 'F')
 		return (1);
+
 	return (0);
 }
+
 /**
  * main - check the code for Holberton School students.
  * @argc: number of arguments.
@@ -184,25 +215,32 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
 		exit(98);
 	}
+
 	fd = open(argv[1], O_RDONLY);
+
 	if (fd < 0)
 	{
 		dprintf(STDERR_FILENO, "Err: file can not be open\n");
 		exit(98);
 	}
+
 	lseek(fd, 0, SEEK_SET);
 	ret_read = read(fd, ptr, 27);
+
 	if (ret_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
 		exit(98);
 	}
+
 	if (!check_elf(ptr))
 	{
 		dprintf(STDERR_FILENO, "Err: It is not an ELF\n");
 		exit(98);
 	}
+
 	check_sys(ptr);
 	close(fd);
+
 	return (0);
 }
